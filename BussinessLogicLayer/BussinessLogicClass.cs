@@ -16,7 +16,7 @@ namespace BussinessLogicNamespace
         #region AdminLoginMethod
         public int AdminLogin(BussinessObjectsClass bussinessObject)
         {
-            if (bussinessObject.UserName == "Admin" && bussinessObject.Password == "AdminPassword1.")  // Hardcoded Admin login Credentials. This is bad practice. I'll find a better way later. 
+            if (bussinessObject.UserName == "Admin" && bussinessObject.Password == "123")  // Hardcoded Admin login Credentials. This is bad practice. I'll find a better way later. 
             {
                 return 1;
             }
@@ -45,6 +45,13 @@ namespace BussinessLogicNamespace
         {
             int isRecordDeleted = dataAccessObject.DeleteBus(bussinessObject);      // DeleteBus() method from Data-Access layer
             return isRecordDeleted;
+        }
+        #endregion
+        #region EditBus
+        public int EditBus(BussinessObjectsClass bussinessObject)
+        {
+            int isRecordEdited = dataAccessObject.EditBusDetails(bussinessObject);      // EditBusDetails() method from Data-Access layer
+            return isRecordEdited;                                                      // return this to presentation layer
         }
         #endregion
     }

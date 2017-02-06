@@ -43,7 +43,61 @@ namespace PresentationLayer
             }
             else
             {
-                Response.Write("Could not delete Bus entry. Please try again");                 // else show error message.
+                Response.Write("Could not delete Bus entry. Please try again");                    // else show error message.
+            }
+        }
+
+        protected void gridBusDetails_PageIndexChanging(object sender, GridViewPageEventArgs e)    // Page index change event. Each page can display upto 4 records.
+        {
+            gridBusDetails.PageIndex = e.NewPageIndex;
+            GetBusDetails();
+        }
+
+        protected void gridBusDetails_RowEditing(object sender, GridViewEditEventArgs e)         // Change to dynamic editing-view once the user clicks edit button.  
+        {
+            gridBusDetails.EditIndex = e.NewEditIndex;                                           // Change index value, its "-1" by default which is for static view.
+            GetBusDetails();
+        }
+
+        protected void gridBusDetails_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)  // If user hit cancel, change back to static view, i.e EditIndex = -1
+        {
+            gridBusDetails.EditIndex = -1;
+            GetBusDetails();
+        }
+
+        protected void gridBusDetails_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            BussinessLogicClass bussinessLogicObject = new BussinessLogicClass();
+            BussinessObjectsClass bussinessObject = new BussinessObjectsClass();
+            GridViewRow row = (GridViewRow)gridBusDetails.Rows[e.RowIndex];                         // Get the number of rows in the gridview and the index where user clicked edit.
+            TextBox bNum = (TextBox)row.FindControl("txt_bNumber");                                 // Find the control in which the user has edited the value.
+            bussinessObject.BusNumber = bNum.Text;                                                  // Assign the properties in the business-object layer with te user entered values.  
+            TextBox sPoint = (TextBox)row.FindControl("txt_sPoint");
+            bussinessObject.StartPoint = sPoint.Text;
+            TextBox dest = (TextBox)row.FindControl("txt_dest");
+            bussinessObject.Destination = dest.Text;
+            TextBox cap = (TextBox)row.FindControl("txt_cap");
+            bussinessObject.Capacity = int.Parse(cap.Text);
+            TextBox dTime = (TextBox)row.FindControl("txt_dTime");
+            bussinessObject.DepartureTime = dTime.Text;
+            TextBox aTime = (TextBox)row.FindControl("txt_aTime");
+            bussinessObject.ArrivalTime = aTime.Text;
+            TextBox cName = (TextBox)row.FindControl("txt_cName");
+            bussinessObject.CompanyName = cName.Text;
+            TextBox bType = (TextBox)row.FindControl("txt_bType");
+            bussinessObject.BusType = bType.Text;
+            int isEditProcessSuccessfull = bussinessLogicObject.EditBus(bussinessObject);            // Passing above values to Edit bus function. 
+            if(isEditProcessSuccessfull == 1)                                                        // If query execution returns 1, update records and switch back to static view with updated data.   
+            {
+                Response.Write("Bus details Edited Successfully");
+                gridBusDetails.EditIndex = -1;
+                GetBusDetails();
+
+            }
+            else
+            {
+                Response.Write("Unable to Edit bus details.Please try again");
+                GetBusDetails();
             }
         }
     }

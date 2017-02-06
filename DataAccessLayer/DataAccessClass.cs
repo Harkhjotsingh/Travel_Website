@@ -72,6 +72,28 @@ namespace DataAccessNamespace
             cmd.CommandType = CommandType.StoredProcedure;                                                             // Stored Procedure to delete Bus details by BusNumber
             cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);                                
             int isquerySuccessful = cmd.ExecuteNonQuery();                                                             // returns return value of ExecuteNonQuery() method i.e 1 for success and 0 for failure.
+            conn.Close();
+            return isquerySuccessful;
+        }
+        #endregion
+        #region EditBusDetails
+        public int EditBusDetails(BussinessObjectsClass bussinessObject)                                // Edit is similar to add, insted of "insert" we have to "update" the values.
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("proc_EditBus", conn);                                      // proc_EditBus is a stored procedure that updates values in Bus table.
+            cmd.CommandType = CommandType.StoredProcedure;                                           
+            // Assigning Data to Bus Details properties. 
+            cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);
+            cmd.Parameters.AddWithValue("@StartPoint", bussinessObject.StartPoint);
+            cmd.Parameters.AddWithValue("@Destination", bussinessObject.Destination);
+            cmd.Parameters.AddWithValue("@capacity", bussinessObject.Capacity);
+            cmd.Parameters.AddWithValue("@DepartureTime", bussinessObject.DepartureTime);
+            cmd.Parameters.AddWithValue("@ArrivalTime", bussinessObject.ArrivalTime);
+            cmd.Parameters.AddWithValue("@CompanyName", bussinessObject.CompanyName);
+            cmd.Parameters.AddWithValue("@BusType", bussinessObject.BusType);
+            int isquerySuccessful = cmd.ExecuteNonQuery();
+            conn.Close();
             return isquerySuccessful;
         }
         #endregion
