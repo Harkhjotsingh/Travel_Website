@@ -43,7 +43,7 @@ namespace BussinessLogicNamespace
         #region DeleteBus
         public int DeleteBus(BussinessObjectsClass bussinessObject)
         {
-            int isRecordDeleted = dataAccessObject.DeleteBus(bussinessObject);
+            int isRecordDeleted = dataAccessObject.DeleteBus(bussinessObject);      // DeleteBus() method from Data-Access layer
             return isRecordDeleted;
         }
         #endregion

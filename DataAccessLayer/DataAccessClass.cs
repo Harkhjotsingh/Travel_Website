@@ -66,12 +66,12 @@ namespace DataAccessNamespace
         #region DeleteBus
         public int DeleteBus(BussinessObjectsClass bussinessObject)
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString()); 
             conn.Open();
             SqlCommand cmd = new SqlCommand("proc_deleteBus", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);
-            int isquerySuccessful = cmd.ExecuteNonQuery();
+            cmd.CommandType = CommandType.StoredProcedure;                                                             // Stored Procedure to delete Bus details by BusNumber
+            cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);                                
+            int isquerySuccessful = cmd.ExecuteNonQuery();                                                             // returns return value of ExecuteNonQuery() method i.e 1 for success and 0 for failure.
             return isquerySuccessful;
         }
         #endregion

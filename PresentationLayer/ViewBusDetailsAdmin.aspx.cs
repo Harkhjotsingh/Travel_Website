@@ -29,21 +29,21 @@ namespace PresentationLayer
             }
         }
 
-        protected void gridBusDetails_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void gridBusDetails_RowDeleting(object sender, GridViewDeleteEventArgs e) 
         {
             BussinessLogicClass bussinessLogicObject = new BussinessLogicClass();
             BussinessObjectsClass bussinessObject = new BussinessObjectsClass();
-            string busNumber = gridBusDetails.DataKeys[e.RowIndex].Value.ToString();
+            string busNumber = gridBusDetails.DataKeys[e.RowIndex].Value.ToString();            // getting bus number 
             bussinessObject.BusNumber = busNumber;
-            int isDeleteSuccessful = bussinessLogicObject.DeleteBus(bussinessObject);
-            if(isDeleteSuccessful == 1)
+            int isDeleteSuccessful = bussinessLogicObject.DeleteBus(bussinessObject);           // passing the bus number via bussinessObject's object.
+            if(isDeleteSuccessful == 1)                                                         // if deletes successfull
             {
-                Response.Write("Bus entry is Deleted");
-                GetBusDetails();
+                Response.Write("Bus entry is Deleted");                                         // Show user message
+                GetBusDetails();                                                                // Update gridBusDetails on page for user to see. 
             }
             else
             {
-                Response.Write("Could not delete Bus entry. Please try again");
+                Response.Write("Could not delete Bus entry. Please try again");                 // else show error message.
             }
         }
     }
