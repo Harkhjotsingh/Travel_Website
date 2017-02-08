@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AddBus.aspx" />
+    <Content Include="AddBusPickupPoints.aspx" />
     <Content Include="AdminHome.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Home.aspx" />
@@ -133,6 +134,13 @@
     </Compile>
     <Compile Include="AddBus.aspx.designer.cs">
       <DependentUpon>AddBus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddBusPickupPoints.aspx.cs">
+      <DependentUpon>AddBusPickupPoints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddBusPickupPoints.aspx.designer.cs">
+      <DependentUpon>AddBusPickupPoints.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>

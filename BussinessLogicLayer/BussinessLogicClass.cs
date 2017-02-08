@@ -12,7 +12,7 @@ namespace BussinessLogicNamespace
 {
     public class BussinessLogicClass
     {
-        DataAccessClass dataAccessObject = new DataAccessClass();                   // Data-Access Object. So that it Bussiness Logic layer can interact with DataAccess layer.
+        DataAccessClass dataAccessObject = new DataAccessClass();                   // Global Data-Access Object. So that it Bussiness Logic layer can interact with DataAccess layer.
         #region AdminLoginMethod
         public int AdminLogin(BussinessObjectsClass bussinessObject)
         {
@@ -52,6 +52,25 @@ namespace BussinessLogicNamespace
         {
             int isRecordEdited = dataAccessObject.EditBusDetails(bussinessObject);      // EditBusDetails() method from Data-Access layer
             return isRecordEdited;                                                      // return this to presentation layer
+        }
+        #endregion
+        #region AutoGeneratePickupIds
+        public string AutoGenPickupIDs()
+        {
+            string pickupId = "pid_";                                                                   
+            string generatedID = dataAccessObject.AutoGenPickupIDs();                                       // Get auto-generated ID from AutoGenPickupIDs() method.
+            string[] idString = generatedID.Split('_');                                                     // Split the genrated value at "_". for ex: pid_0 will be splited into pid_ and 0;
+            uint number = uint.Parse(idString[1]);                                                          // Will give out the numerical value in the string. 
+            number++;
+            pickupId = pickupId + number;
+            return pickupId;
+        }
+        #endregion
+        #region AddPickupPointInfo
+        public int AddBusPickupPointInfo(BussinessObjectsClass bussinessObject)
+        {
+            int isBusPickupInfoAddedSuccessfully = dataAccessObject.AddBusPickupInfo(bussinessObject);
+            return isBusPickupInfoAddedSuccessfully;
         }
         #endregion
     }

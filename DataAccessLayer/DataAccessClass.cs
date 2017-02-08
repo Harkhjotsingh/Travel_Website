@@ -23,7 +23,7 @@ namespace DataAccessNamespace
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("proc_AddBus", conn);                         // proc_AddBus is a stored procedure that inserts values to Bus table.
+                SqlCommand cmd = new SqlCommand("proc_addBus", conn);                         // proc_AddBus is a stored procedure that inserts values to Bus table.
                 cmd.CommandType = CommandType.StoredProcedure;                                // Working with stored procedure.
                 // Assigning Data to Bus Details properties. 
                 cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);
@@ -81,7 +81,7 @@ namespace DataAccessNamespace
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
             conn.Open();
-            SqlCommand cmd = new SqlCommand("proc_EditBus", conn);                                      // proc_EditBus is a stored procedure that updates values in Bus table.
+            SqlCommand cmd = new SqlCommand("proc_editBus", conn);                                      // proc_EditBus is a stored procedure that updates values in Bus table.
             cmd.CommandType = CommandType.StoredProcedure;                                           
             // Assigning Data to Bus Details properties. 
             cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);
@@ -97,5 +97,33 @@ namespace DataAccessNamespace
             return isquerySuccessful;
         }
         #endregion
+        #region AutoGeneratePickupIds
+        public string AutoGenPickupIDs()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("proc_autoGenPickupIDs", conn);                                      // proc_autoGenPickupIDs is a stored procedure that auto-generates Bus Pickup IDs.
+            cmd.CommandType = CommandType.StoredProcedure;
+            string isquerySuccessful = cmd.ExecuteScalar().ToString();                                           // ExcecuteScalar() will last pp_id from pickupPoint table.
+            conn.Close();
+            return isquerySuccessful; 
+        }
+        #endregion
+        #region AddBusPickupInfo
+        public int AddBusPickupInfo(BussinessObjectsClass bussinessObject)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("proc_addBusPickupInfo", conn);                                      // proc_EditBus is a stored procedure that updates values in Bus table.
+            cmd.CommandType = CommandType.StoredProcedure;
+            // Assigning Data to Bus Details properties. 
+            cmd.Parameters.AddWithValue("@pp_id", bussinessObject.PickupId);
+            cmd.Parameters.AddWithValue("@pp_station", bussinessObject.PickupLocation);   
+            int isquerySuccessful = cmd.ExecuteNonQuery();
+            conn.Close();
+            return isquerySuccessful;
+        }
+        #endregion
+
     }
 }

@@ -45,7 +45,7 @@
                                 <asp:MenuItem Text="View" Value="View" NavigateUrl="~/ViewBusDetailsAdmin.aspx"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Pickup Point" Value="Pickup Point">
-                                <asp:MenuItem Text="Add" Value="Add"></asp:MenuItem>
+                                <asp:MenuItem Text="Add" Value="Add" NavigateUrl="~/AddBusPickupPoints.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Delete" Value="Delete"></asp:MenuItem>
                                 <asp:MenuItem Text="View" Value="View"></asp:MenuItem>
                                 <asp:MenuItem Text="Add Bus Pickup Point" Value="Add Bus Pickup Point"></asp:MenuItem>
