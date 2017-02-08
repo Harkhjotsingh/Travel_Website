@@ -12,7 +12,7 @@ namespace BussinessLogicNamespace
 {
     public class BussinessLogicClass
     {
-        DataAccessClass dataAccessObject = new DataAccessClass();                   // Global Data-Access Object. So that it Bussiness Logic layer can interact with DataAccess layer.
+        DataAccessClass dataAccessObject = new DataAccessClass();                          // Global Data-Access Object. So that it Bussiness Logic layer can interact with DataAccess layer.
         #region AdminLoginMethod
         public int AdminLogin(BussinessObjectsClass bussinessObject)
         {
@@ -69,8 +69,22 @@ namespace BussinessLogicNamespace
         #region AddPickupPointInfo
         public int AddBusPickupPointInfo(BussinessObjectsClass bussinessObject)
         {
-            int isBusPickupInfoAddedSuccessfully = dataAccessObject.AddBusPickupInfo(bussinessObject);
+            int isBusPickupInfoAddedSuccessfully = dataAccessObject.AddBusPickupInfo(bussinessObject);      // Calling AddBusPickupInfo() from Data-Access layer.
             return isBusPickupInfoAddedSuccessfully;
+        }
+        #endregion
+        #region ViewPickupPointsAdmin
+        public DataSet ViewPickupPoints()
+        {
+            DataSet ds = dataAccessObject.ViewPickupPointsInfo();                   // Store DataSet from ViewPickupPointsInfo() method into another DatSet object.
+            return ds;                                                              // return DataSet.
+        }
+        #endregion
+        #region DeletePickupPoint
+        public int DelPickupPoint(BussinessObjectsClass bussinessObject)
+        {
+            int isRecordDeleted = dataAccessObject.DeletePickupPoints(bussinessObject);      // DeletePickupPoints() method from Data-Access layer
+            return isRecordDeleted;
         }
         #endregion
     }

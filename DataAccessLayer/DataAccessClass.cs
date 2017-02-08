@@ -36,7 +36,7 @@ namespace DataAccessNamespace
                 cmd.Parameters.AddWithValue("@BusType", bussinessObject.BusType);
                 isquerySuccessful = cmd.ExecuteNonQuery();                                     // ExecuteNonQuery() returns value of how many queries got successfully executed.
             }
-            catch(Exception excep)                                                              // Catch Exception and Log data to Log file.
+            catch (Exception excep)                                                              // Catch Exception and Log data to Log file.
             {
                 string filePath = @"D:\_.NET\Projects\Travel_Website\ExceptionLogs.txt";
                 StreamWriter sw = new StreamWriter(filePath);                                   // Stream writer object.
@@ -66,11 +66,11 @@ namespace DataAccessNamespace
         #region DeleteBus
         public int DeleteBus(BussinessObjectsClass bussinessObject)
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString()); 
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
             conn.Open();
             SqlCommand cmd = new SqlCommand("proc_deleteBus", conn);
             cmd.CommandType = CommandType.StoredProcedure;                                                             // Stored Procedure to delete Bus details by BusNumber
-            cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);                                
+            cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);
             int isquerySuccessful = cmd.ExecuteNonQuery();                                                             // returns return value of ExecuteNonQuery() method i.e 1 for success and 0 for failure.
             conn.Close();
             return isquerySuccessful;
@@ -82,7 +82,7 @@ namespace DataAccessNamespace
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
             conn.Open();
             SqlCommand cmd = new SqlCommand("proc_editBus", conn);                                      // proc_EditBus is a stored procedure that updates values in Bus table.
-            cmd.CommandType = CommandType.StoredProcedure;                                           
+            cmd.CommandType = CommandType.StoredProcedure;
             // Assigning Data to Bus Details properties. 
             cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);
             cmd.Parameters.AddWithValue("@StartPoint", bussinessObject.StartPoint);
@@ -106,7 +106,7 @@ namespace DataAccessNamespace
             cmd.CommandType = CommandType.StoredProcedure;
             string isquerySuccessful = cmd.ExecuteScalar().ToString();                                           // ExcecuteScalar() will last pp_id from pickupPoint table.
             conn.Close();
-            return isquerySuccessful; 
+            return isquerySuccessful;
         }
         #endregion
         #region AddBusPickupInfo
@@ -117,13 +117,39 @@ namespace DataAccessNamespace
             SqlCommand cmd = new SqlCommand("proc_addBusPickupInfo", conn);                                      // proc_EditBus is a stored procedure that updates values in Bus table.
             cmd.CommandType = CommandType.StoredProcedure;
             // Assigning Data to Bus Details properties. 
-            cmd.Parameters.AddWithValue("@pp_id", bussinessObject.PickupId);
-            cmd.Parameters.AddWithValue("@pp_station", bussinessObject.PickupLocation);   
+            cmd.Parameters.AddWithValue("@pp_id", bussinessObject.PickupId);                                     // inserting values to the table.  
+            cmd.Parameters.AddWithValue("@pp_station", bussinessObject.PickupLocation);
             int isquerySuccessful = cmd.ExecuteNonQuery();
             conn.Close();
             return isquerySuccessful;
         }
         #endregion
-
+        #region ViewPickupPointsAdmin
+        public DataSet ViewPickupPointsInfo()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("proc_viewPickupPointsInfo", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);                                        // DataADapter object 
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataSet ds = new DataSet();                                                         // DataSet object to store data locally.
+            da.Fill(ds);                                                        // Fill data from DataAdapter DataSet object.     
+            conn.Close();
+            return ds;                                                                          // return DataSet.    
+        }
+        #endregion
+        #region DeletePickupPoints
+        public int DeletePickupPoints(BussinessObjectsClass bussinessObject)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("proc_deletePickupPoint", conn);
+            cmd.CommandType = CommandType.StoredProcedure;                                                             // Stored Procedure to delete Pickup Point details by PickupId(pp_id)
+            cmd.Parameters.AddWithValue("@pp_id", bussinessObject.PickupId);
+            int isquerySuccessful = cmd.ExecuteNonQuery();
+            conn.Close();
+            return isquerySuccessful;
+        }
+        #endregion
     }
 }

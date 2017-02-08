@@ -11,7 +11,7 @@ namespace PresentationLayer
 {
     public partial class AddBusPickupPoints : System.Web.UI.Page
     {
-        private void AutoGenPickupIDs()
+        private void AutoGenPickupIDs()                                                              // Pass auto generated values to PickupID TextBox.
         {
             BussinessLogicClass bussinessLogicObject = new BussinessLogicClass();
             string pickupId = bussinessLogicObject.AutoGenPickupIDs();
@@ -21,31 +21,32 @@ namespace PresentationLayer
         {
             if(!IsPostBack)
             {
-                AutoGenPickupIDs();
+                AutoGenPickupIDs();                                                                  // Show auto generated pickup id on page load 
                 txtPickupLocation.Focus();
             }
         }
 
         protected void btnAddBus_Click(object sender, EventArgs e)
         {
-            if(txtPickupLocation.Text == "")
+            if(txtPickupLocation.Text == "")                                                        // TextBox validation. Make sure user enters a Pickup Location.      
             {
                 lblPickupLocation.Text = "*Please enter a Pickup Location";
                 txtPickupLocation.Focus();
             }
             else
             {
+                lblPickupLocation.Text = "";
                 BussinessLogicClass bussinessLogicObject = new BussinessLogicClass();
                 BussinessObjectsClass bussinessObject = new BussinessObjectsClass();
-                bussinessObject.PickupId = txtPickupId.Text;
-                bussinessObject.PickupLocation = txtPickupLocation.Text;
-                int isBusPickupInfoAdded = bussinessLogicObject.AddBusPickupPointInfo(bussinessObject);
-                if(isBusPickupInfoAdded == 1)
+                bussinessObject.PickupId = txtPickupId.Text;                                            // Pass pickup-Id from front-end to PickupId Property in BussinessObjects. 
+                bussinessObject.PickupLocation = txtPickupLocation.Text;                                // Passing user entered pickup Location PickupLocation Property in BussinessObjects. 
+                int isBusPickupInfoAdded = bussinessLogicObject.AddBusPickupPointInfo(bussinessObject); // Send values to Logic layer. From there to DataAccess layer and from there to Database. Return 1 if process succeeded.
+                if (isBusPickupInfoAdded == 1)
                 {
-                    Response.Write("Pickup point info added Successfully");
-                    txtPickupLocation.Text = "";
-                    AutoGenPickupIDs();
-                    txtPickupLocation.Focus();
+                    Response.Write("Pickup point info added Successfully");                             // Show message. 
+                    txtPickupLocation.Text = "";                                                        // Clear TextBox
+                    AutoGenPickupIDs();                                                                 // Generate new Pickup Id.
+                    txtPickupLocation.Focus();                                                          // Focus cursor to Pickup Location to enter Another location.        
                 }
                 else
                 {

@@ -118,6 +118,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\logo.png" />
     <Content Include="ViewBusDetailsAdmin.aspx" />
+    <Content Include="ViewPickupPointsInfoAdmin.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +195,13 @@
     </Compile>
     <Compile Include="ViewBusDetailsAdmin.aspx.designer.cs">
       <DependentUpon>ViewBusDetailsAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPickupPointsInfoAdmin.aspx.cs">
+      <DependentUpon>ViewPickupPointsInfoAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewPickupPointsInfoAdmin.aspx.designer.cs">
+      <DependentUpon>ViewPickupPointsInfoAdmin.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
