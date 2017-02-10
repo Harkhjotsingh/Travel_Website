@@ -97,6 +97,8 @@
     <Content Include="About.aspx" />
     <Content Include="AddBus.aspx" />
     <Content Include="AddBusPickupPoints.aspx" />
+    <Content Include="AddBusSpecific_PickupPoints.aspx" />
+    <Content Include="AddDestinationIDs.aspx" />
     <Content Include="AdminHome.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Home.aspx" />
@@ -142,6 +144,20 @@
     </Compile>
     <Compile Include="AddBusPickupPoints.aspx.designer.cs">
       <DependentUpon>AddBusPickupPoints.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddBusSpecific_PickupPoints.aspx.cs">
+      <DependentUpon>AddBusSpecific_PickupPoints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddBusSpecific_PickupPoints.aspx.designer.cs">
+      <DependentUpon>AddBusSpecific_PickupPoints.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddDestinationIDs.aspx.cs">
+      <DependentUpon>AddDestinationIDs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddDestinationIDs.aspx.designer.cs">
+      <DependentUpon>AddDestinationIDs.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>

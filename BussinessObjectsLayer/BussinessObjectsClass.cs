@@ -24,5 +24,8 @@ namespace BussinessObjectsNamespace
         // Bus PickupPoint Properties
         public string PickupId{ get; set; }
         public string PickupLocation { get; set; }
+        // Bus Destination(s) Properties
+        public string DestinationId { get; set; }
+        public string DestinationLocation { get; set; }
     }
 }
