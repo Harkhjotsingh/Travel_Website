@@ -19,8 +19,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
 </p>
-    <p class="auto-style6">
-        <strong><em>
-        <asp:Label ID="lblMessage" runat="server" ForeColor="#006600"></asp:Label>
-        </em></strong>&nbsp;</p>
+<p class="auto-style6">
+    <strong><em>
+    <asp:Label ID="lblMessage" runat="server" ForeColor="#006600"></asp:Label>
+    </em></strong>&nbsp;</p>
 </asp:Content>

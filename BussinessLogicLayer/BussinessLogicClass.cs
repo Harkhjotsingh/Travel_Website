@@ -121,5 +121,12 @@ namespace BussinessLogicNamespace
             return isBusPickupInfoAddedSuccessfully;
         }
         #endregion
+        #region ViewDestinationPointsAdmin
+        public DataSet ViewDestinationPoints()
+        {
+            DataSet ds = dataAccessObject.ViewDestinationPointsInfo();                   // Store DataSet from ViewDestinationPointsInfo() method into another DatSet object.
+            return ds;                                                                   // return DataSet.
+        }
+        #endregion
     }
 }

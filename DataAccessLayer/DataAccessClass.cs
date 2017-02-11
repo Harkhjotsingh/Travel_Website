@@ -204,5 +204,19 @@ namespace DataAccessNamespace
             return isquerySuccessful;
         }
         #endregion
+        #region ViewDestinationPointsAdmin
+        public DataSet ViewDestinationPointsInfo()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("proc_viewDestinationPointsInfo", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);                                        // DataADapter object 
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataSet ds = new DataSet();                                                         // DataSet object to store data locally.
+            da.Fill(ds);                                                                        // Fill data from DataAdapter DataSet object.     
+            conn.Close();
+            return ds;
+        }
+        #endregion
     }
 }

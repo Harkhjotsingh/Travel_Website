@@ -53,7 +53,7 @@
                             <asp:MenuItem Text="DestinationPoint" Value="DestinationPoint">
                                 <asp:MenuItem Text="Add" Value="Add" NavigateUrl="~/AddDestinationIDs.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Delete" Value="Delete"></asp:MenuItem>
-                                <asp:MenuItem Text="View" Value="View"></asp:MenuItem>
+                                <asp:MenuItem Text="View" Value="View" NavigateUrl="~/ViewDestinationPointsInfoAdmin.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Bus Destination Point" Value="Bus Destination Point"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="Logout" Value="Logout"></asp:MenuItem>
