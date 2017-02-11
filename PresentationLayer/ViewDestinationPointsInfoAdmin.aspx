@@ -10,7 +10,7 @@
     <asp:GridView ID="gridViewDestinationPoints" runat="server" AutoGenerateColumns="False" CssClass="auto-style6" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
     <Columns>
-        <asp:TemplateField HeaderText="Destination ID">
+        <asp:TemplateField HeaderText="Destination ID" Visible="False">
             <EditItemTemplate>
                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("d_id") %>'></asp:TextBox>
             </EditItemTemplate>
