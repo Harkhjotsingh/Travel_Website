@@ -128,5 +128,12 @@ namespace BussinessLogicNamespace
             return ds;                                                                   // return DataSet.
         }
         #endregion
+        #region DeleteDestinationPoint
+        public int DelDestinationPoint(BussinessObjectsClass bussinessObject)
+        {
+            int isRecordDeleted = dataAccessObject.DeleteDestinationPoints(bussinessObject);      // DeletePickupPoints() method from Data-Access layer
+            return isRecordDeleted;
+        }
+        #endregion
     }
 }

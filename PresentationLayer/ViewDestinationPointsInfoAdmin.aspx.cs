@@ -27,5 +27,32 @@ namespace PresentationLayer
                 GetDestinationInfo();
             }
         }
+
+        protected void gridViewDestinationPoints_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if(e.CommandName.ToString() == "cmdDelete")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
+                GridViewRow row = (GridViewRow)gridViewDestinationPoints.Rows[rowIndex];
+                Label destID = (Label)row.FindControl("lblDestinationId");
+                BussinessObjectsClass bussinessObject = new BussinessObjectsClass();
+                bussinessObject.DestinationId = destID.Text;
+                BussinessLogicClass bussinessLogicObject = new BussinessLogicClass();
+                int isDestinationDeleted = bussinessLogicObject.DelDestinationPoint(bussinessObject);
+                if(isDestinationDeleted == 1)
+                {
+                    Response.Write("Destination point deleted successfully");
+                    GetDestinationInfo();
+                }
+                else
+                {
+                    Response.Write("Failed to delete the Destination Point");
+                }
+            }
+            else if(e.CommandArgument.ToString() == "cmdUpdate")
+            {
+
+            }
+        }
     }
 }

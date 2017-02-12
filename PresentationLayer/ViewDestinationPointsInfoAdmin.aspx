@@ -7,15 +7,25 @@
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="gridViewDestinationPoints" runat="server" AutoGenerateColumns="False" CssClass="auto-style6" CellPadding="4" ForeColor="#333333" GridLines="None">
+    <asp:GridView ID="gridViewDestinationPoints" runat="server" AutoGenerateColumns="False" CssClass="auto-style6" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="gridViewDestinationPoints_RowCommand">
         <AlternatingRowStyle BackColor="White" />
     <Columns>
+        <asp:TemplateField ShowHeader="False">
+            <ItemTemplate>
+                <asp:LinkButton ID="linkBtnDelete" runat="server" CausesValidation="false" CommandName="cmdDelete" Text="Delete" CommandArgument ="<%#((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField ShowHeader="False">
+            <ItemTemplate>
+                <asp:LinkButton ID="linkBtnUpdate" runat="server" CausesValidation="false" CommandName="cmdUpdate" Text="Update" CommandArgument="<%#((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
+            </ItemTemplate>
+        </asp:TemplateField>
         <asp:TemplateField HeaderText="Destination ID" Visible="False">
             <EditItemTemplate>
                 <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("d_id") %>'></asp:TextBox>
             </EditItemTemplate>
             <ItemTemplate>
-                <asp:Label ID="Label1" runat="server" Text='<%# Bind("d_id") %>'></asp:Label>
+                <asp:Label ID="lblDestinationId" runat="server" Text='<%# Bind("d_id") %>'></asp:Label>
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="Destination Point">

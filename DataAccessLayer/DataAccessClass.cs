@@ -169,7 +169,7 @@ namespace DataAccessNamespace
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
             conn.Open();
             SqlCommand cmd = new SqlCommand("proc_addBusSpecificPickupPoint", conn);                                      // proc_addBusSpecificPickupPoint is a stored procedure that updates values in BusPickupPoints table.
-            cmd.CommandType = CommandType.StoredProcedure; 
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);                                         // inserting values to the table.  
             cmd.Parameters.AddWithValue("@pp_id", bussinessObject.PickupId);
             int isquerySuccessful = cmd.ExecuteNonQuery();
@@ -197,7 +197,7 @@ namespace DataAccessNamespace
             SqlCommand cmd = new SqlCommand("proc_addBusDestinationInfo", conn);                                  // proc_addBusDestinationInfo is a stored procedure that add Destination Id and Locations in Bus table.
             cmd.CommandType = CommandType.StoredProcedure;
             // Assigning Data to Bus Details properties. 
-            cmd.Parameters.AddWithValue("@d_id", bussinessObject.DestinationId);                                      
+            cmd.Parameters.AddWithValue("@d_id", bussinessObject.DestinationId);
             cmd.Parameters.AddWithValue("@d_station", bussinessObject.DestinationLocation);
             int isquerySuccessful = cmd.ExecuteNonQuery();
             conn.Close();
@@ -216,6 +216,19 @@ namespace DataAccessNamespace
             da.Fill(ds);                                                                        // Fill data from DataAdapter DataSet object.     
             conn.Close();
             return ds;
+        }
+        #endregion
+        #region DeleteDestinationPoints
+        public int DeleteDestinationPoints(BussinessObjectsClass bussinessObject)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("proc_deleteDestinationPoint", conn);
+            cmd.CommandType = CommandType.StoredProcedure;                                                             // Stored Procedure to delete Destination Point details by DestinationId(d_id)
+            cmd.Parameters.AddWithValue("@d_id", bussinessObject.DestinationId);
+            int isquerySuccessful = cmd.ExecuteNonQuery();
+            conn.Close();
+            return isquerySuccessful;
         }
         #endregion
     }
