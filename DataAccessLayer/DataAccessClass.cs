@@ -231,5 +231,18 @@ namespace DataAccessNamespace
             return isquerySuccessful;
         }
         #endregion
+        #region UpdateDestinationPoints
+        public int UpdateDestinationPoints(BussinessObjectsClass bussinessObject)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("proc_updateDestinationPoints", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@d_id", bussinessObject.DestinationId);
+            cmd.Parameters.AddWithValue("@d_station", bussinessObject.DestinationLocation);
+            int isQuerySuccessfull = cmd.ExecuteNonQuery();
+            return isQuerySuccessfull;
+        }
+        #endregion
     }
 }

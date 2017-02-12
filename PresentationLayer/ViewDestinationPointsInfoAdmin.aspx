@@ -33,7 +33,7 @@
                 <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("d_station") %>'></asp:TextBox>
             </EditItemTemplate>
             <ItemTemplate>
-                <asp:Label ID="Label2" runat="server" Text='<%# Bind("d_station") %>'></asp:Label>
+                <asp:Label ID="lblDestinationLocation" runat="server" Text='<%# Bind("d_station") %>'></asp:Label>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>

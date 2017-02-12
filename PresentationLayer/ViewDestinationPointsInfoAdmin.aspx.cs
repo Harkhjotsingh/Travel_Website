@@ -29,7 +29,7 @@ namespace PresentationLayer
         }
 
         protected void gridViewDestinationPoints_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
+          {
             if(e.CommandName.ToString() == "cmdDelete")
             {
                 int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
@@ -49,9 +49,18 @@ namespace PresentationLayer
                     Response.Write("Failed to delete the Destination Point");
                 }
             }
-            else if(e.CommandArgument.ToString() == "cmdUpdate")
+            else if(e.CommandName.ToString() == "cmdUpdate")
             {
-
+                int rowIndex = Convert.ToInt32(e.CommandArgument.ToString());
+                GridViewRow row = (GridViewRow)gridViewDestinationPoints.Rows[rowIndex];
+                Label destID = (Label)row.FindControl("lblDestinationId");
+                Label destLoc = (Label)row.FindControl("lblDestinationLocation");
+                BussinessObjectsClass bussinessLogicObject = new BussinessObjectsClass();
+                bussinessLogicObject.DestinationId = destID.Text;
+                bussinessLogicObject.DestinationLocation = destLoc.Text;
+                Session["d_id"] = destID.Text;
+                Session["d_station"] = destLoc.Text;
+                Response.Redirect("UpdateDestinationPoints.aspx");
             }
         }
     }

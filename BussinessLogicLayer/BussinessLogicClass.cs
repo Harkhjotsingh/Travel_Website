@@ -131,8 +131,15 @@ namespace BussinessLogicNamespace
         #region DeleteDestinationPoint
         public int DelDestinationPoint(BussinessObjectsClass bussinessObject)
         {
-            int isRecordDeleted = dataAccessObject.DeleteDestinationPoints(bussinessObject);      // DeletePickupPoints() method from Data-Access layer
+            int isRecordDeleted = dataAccessObject.DeleteDestinationPoints(bussinessObject);      // DeleteDestinationPoints() method from Data-Access layer
             return isRecordDeleted;
+        }
+        #endregion
+        #region UpdateDestinationPoint
+        public int UpdateDestinationPoint(BussinessObjectsClass bussinessObject)
+        {
+            int isRecordUpdated = dataAccessObject.UpdateDestinationPoints(bussinessObject);      
+            return isRecordUpdated;
         }
         #endregion
     }

@@ -119,6 +119,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Images\logo.png" />
+    <Content Include="UpdateDestinationPoints.aspx" />
     <Content Include="ViewBusDetailsAdmin.aspx" />
     <Content Include="ViewDestinationPointsInfoAdmin.aspx" />
     <Content Include="ViewPickupPointsInfoAdmin.aspx" />
@@ -206,6 +207,13 @@
       <DependentUpon>MainMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateDestinationPoints.aspx.cs">
+      <DependentUpon>UpdateDestinationPoints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateDestinationPoints.aspx.designer.cs">
+      <DependentUpon>UpdateDestinationPoints.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewBusDetailsAdmin.aspx.cs">
       <DependentUpon>ViewBusDetailsAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
