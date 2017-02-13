@@ -244,5 +244,19 @@ namespace DataAccessNamespace
             return isQuerySuccessfull;
         }
         #endregion
+        #region AddBusSpecificDestinationPoints
+        public int AddBusSpecificDestinationPoints(BussinessObjectsClass bussinessObject)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("proc_addBusSpecificDestinationPoints", conn);                                      // proc_addBusSpecificDestinationPoints is a stored procedure that updates values in BusDestination table.
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);                                           
+            cmd.Parameters.AddWithValue("@d_id", bussinessObject.DestinationId);
+            int isquerySuccessful = cmd.ExecuteNonQuery();
+            conn.Close();
+            return isquerySuccessful;
+        }
+        #endregion
     }
 }

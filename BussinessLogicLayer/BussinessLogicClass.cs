@@ -142,5 +142,12 @@ namespace BussinessLogicNamespace
             return isRecordUpdated;
         }
         #endregion
+        #region AddBusSpecificDestinationPoint
+        public int AddBusSpecificDestinationPoint(BussinessObjectsClass bussinessObject)
+        {
+            int isBusDestinatuionAddeddSuccessfully = dataAccessObject.AddBusSpecificDestinationPoints(bussinessObject);
+            return isBusDestinatuionAddeddSuccessfully;
+        }
+        #endregion
     }
 }
