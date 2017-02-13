@@ -20,6 +20,7 @@ namespace PresentationLayer
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblDestinationLocation.Text = "*";
             if (!IsPostBack)
             {
                 AutoGenDestinationIDs();
@@ -30,24 +31,24 @@ namespace PresentationLayer
         {
             if (txtDestinationLocation.Text == "")                                                        // TextBox validation. Make sure user enters a Pickup Location.      
             {
-                lblDestinationLocation.Text = "*Please enter a Pickup Location";
+                lblDestinationLocation.Text = "*Please enter a Destination Location";
                 txtDestinationLocation.Focus();
                 lblMessage.Text = "";
             }
             else
             {
-                lblDestinationLocation.Text = "";
+                lblDestinationLocation.Text = "*";
                 BussinessLogicClass bussinessLogicObject = new BussinessLogicClass();
                 BussinessObjectsClass bussinessObject = new BussinessObjectsClass();
-                bussinessObject.DestinationId = txtDestinationID.Text;                                 // Pass Destination-Id from front-end to DestinationId Property in BussinessObjects. 
-                bussinessObject.DestinationLocation = txtDestinationLocation.Text;                           // Passing user entered Destination Location DestinationLocation Property in BussinessObjects. 
-                int isDestinationInfoAdded = bussinessLogicObject.AddBusDestinationInfo(bussinessObject);    // Send values to Logic layer. From there to DataAccess layer and from there to Database. Return 1 if process succeeded.
+                bussinessObject.DestinationId = txtDestinationID.Text;                                               // Pass Destination-Id from front-end to DestinationId Property in BussinessObjects. 
+                bussinessObject.DestinationLocation = txtDestinationLocation.Text;                                   // Passing user entered Destination Location DestinationLocation Property in BussinessObjects. 
+                int isDestinationInfoAdded = bussinessLogicObject.AddBusDestinationInfo(bussinessObject);            // Send values to Logic layer. From there to DataAccess layer and from there to Database. Return 1 if process succeeded.
                 if (isDestinationInfoAdded == 1)
                 {
-                    lblMessage.Text = "Destination Point added Successfully.";                               // Show message. 
-                    txtDestinationLocation.Text = "";                                                        // Clear TextBox
-                    AutoGenDestinationIDs();                                                                 // Generate new Destination Id.
-                    txtDestinationLocation.Focus();                                                          // Focus cursor to Destination Location to enter Another location.        
+                    lblMessage.Text = txtDestinationLocation.Text + " is added to Destination Points successfully."; // Show message. 
+                    txtDestinationLocation.Text = "";                                                                // Clear TextBox
+                    AutoGenDestinationIDs();                                                                         // Generate new Destination Id.
+                    txtDestinationLocation.Focus();                                                                  // Focus cursor to Destination Location to enter Another location.        
                 }
                 else
                 {

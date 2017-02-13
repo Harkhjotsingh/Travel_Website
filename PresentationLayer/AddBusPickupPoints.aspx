@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p>
     Pickup ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="txtPickupId" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtPickupId" runat="server" ReadOnly="True"></asp:TextBox>
 </p>
 <p>
     Pickup Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -18,6 +18,9 @@
 </p>
 <p class="auto-style6">
     <asp:Button ID="btnAddBus" runat="server" OnClick="btnAddBus_Click" Text="Add" />
-&nbsp;&nbsp;
+</p>
+    <p class="auto-style6">
+        <asp:Label ID="lblMessage" runat="server" ForeColor="#006600"></asp:Label>
+        &nbsp;&nbsp;
 </p>
 </asp:Content>
