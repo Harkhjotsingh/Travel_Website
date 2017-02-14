@@ -56,6 +56,7 @@
                                 <asp:MenuItem Text="View" Value="View" NavigateUrl="~/ViewDestinationPointsInfoAdmin.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Bus Destination Point" Value="Bus Destination Point" NavigateUrl="~/AddBusSpecificDestinationPoints.aspx"></asp:MenuItem>
                             </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/AddFare.aspx" Text="Fare" Value="Fare"></asp:MenuItem>
                             <asp:MenuItem Text="Logout" Value="Logout"></asp:MenuItem>
                         </Items>
                         <StaticHoverStyle BackColor="#990000" ForeColor="White" />

@@ -149,5 +149,12 @@ namespace BussinessLogicNamespace
             return isBusDestinatuionAddeddSuccessfully;
         }
         #endregion
+        #region DestinationPointsBasedOnBusNumber
+        public DataSet DestinationPointsBasedOnBusNumber(BussinessObjectsClass bussinessObject)
+        {
+            DataSet ds = dataAccessObject.DestinationPointsBasedOnBusNumber(bussinessObject);                   // Store DataSet from DestinationPointsBasedOnBusNumber() method into another DatSet object.
+            return ds;                                                                           // return DataSet.
+        }
+        #endregion
     }
 }

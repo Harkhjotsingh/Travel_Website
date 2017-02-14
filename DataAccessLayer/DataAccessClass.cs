@@ -258,5 +258,20 @@ namespace DataAccessNamespace
             return isquerySuccessful;
         }
         #endregion
+        #region DestinationPointsBasedOnBusNumber
+        public DataSet DestinationPointsBasedOnBusNumber(BussinessObjectsClass bussinessObject)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("proc_getDestinationPointsBasedOnBusNumber", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);                                                             // DataADapter object 
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataSet ds = new DataSet();                                                                              // DataSet object to store data locally.
+            cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);
+            da.Fill(ds);                                                                                             // Fill data from DataAdapter DataSet object.     
+            conn.Close();
+            return ds;                                                                                               // return DataSet.    
+        }
+        #endregion
     }
 }
