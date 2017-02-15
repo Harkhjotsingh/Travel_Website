@@ -7,36 +7,15 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            height: 41px;
-        }
-        .auto-style4 {
-            width: 535px;
-        }
-        .auto-style5 {
-            color: #0000FF;
-            font-size: xx-large;
-        }
-    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <table class="auto-style1">
-            <tr>
-                <td class="auto-style2" colspan="2">
-                    <asp:Image ID="LogoAdminMasterPage" runat="server" Height="89px" ImageUrl="~/Images/logo.jpg" Width="90px" />
-                    <span class="auto-style5"><strong><em>Harkhjot Singh Tours and Travels</em></strong></span></td>
-            </tr>
-            <tr>
-                <td class="auto-style4"><strong><em>
-                    <nav>
-            <ul>
-                <li>Bus
+        <asp:Image ID="LogoAdminMasterPage" runat="server" Height="89px" ImageUrl="~/Images/logo.jpg" Width="90px" />
+        <span class="auto-style5"><strong><em>Harkhjot Singh Tours and Travels</em></strong></span></td>               
+        <nav>
+           <ul>
+               <li>Bus
                     <ul>
                         <li><a href="AddBus.aspx">Add Bus</a></li>
                         <li><a href="ViewBusDetailsAdmin.aspx">View Bus Details</a></li>
@@ -57,31 +36,11 @@
                     </ul>
                 </li>
                 <li><a href="AddFare.aspx">Fare</a></li>
-            </ul>
+             </ul>
         </nav>
-                    
-                    </em></strong></td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td colspan="2">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-            <p>
-                &nbsp;</p>
-        
         </asp:ContentPlaceHolder>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-
-                    <asp:TextBox ID="TxtCopyright" runat="server" Width="284px">Copyright © 2017. All rights reserved. </asp:TextBox>
-                </td>
-            </tr>
-        </table>
-    </div>
-    </form>
+        <asp:TextBox ID="TxtCopyright" runat="server" Width="284px">Copyright © 2017. All rights reserved. </asp:TextBox>
+</form>
 </body>
 </html>
