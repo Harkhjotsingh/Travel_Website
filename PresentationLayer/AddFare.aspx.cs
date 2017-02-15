@@ -13,7 +13,7 @@ namespace PresentationLayer
 {
     public partial class AddFare : System.Web.UI.Page
     {
-        // Shows BusInfo in Select Bus dropdown-list. 
+        // Shows BusInfo in Select Bus DropDown-list. 
         private void BindBusInfo()
         {
             BussinessLogicClass bussinessLogicObject = new BussinessLogicClass();
@@ -35,16 +35,18 @@ namespace PresentationLayer
         //Bind the Destination Points when user selects Bus from first DropDownList. 
         private void BindDestinationsPointsBasedOnBusNumber()
         {
+            //Get Bus Number  when Admin Selects bus from Select Bus DropDown List.
             BussinessLogicClass bussinessLogicObject = new BussinessLogicClass();
             BussinessObjectsClass bussinessObject = new BussinessObjectsClass();
             string selectedBus = ddlBusNumber.SelectedItem.ToString();
             string[] busInfo = selectedBus.Split('/');
             bussinessObject.BusNumber = busInfo[0];
             ViewState["BusNumber"] = bussinessObject.BusNumber;                                                 // Save BusNumber for later use when Fare info is added to Fare table in DataBase
+            // Get Destination associated with BusNumber that Admin Selected.
             DataSet ds = bussinessLogicObject.DestinationPointsBasedOnBusNumber(bussinessObject);
             ddlFromPlace.DataSource = ds;
-            ddlFromPlace.DataTextField = "d_station";
-            ddlFromPlace.DataValueField = "d_id";
+            ddlFromPlace.DataTextField = "d_station";                                                           // Text to show when Data is Binded based on Bus Number. 
+            ddlFromPlace.DataValueField = "d_id";                                                               // Value that goes into Database when Admin press Add on Fare Page
             ddlFromPlace.DataBind();
             ddlToPlace.DataSource = ds;
             ddlToPlace.DataTextField = "d_station";
@@ -68,6 +70,7 @@ namespace PresentationLayer
 
         protected void btnAddFare_Click(object sender, EventArgs e)
         {
+            //All Textbox Validations.
             if(txtStartTime.Text=="")
             {
                 lblStartTime.Text = "Please Enter Starting Time";
@@ -82,6 +85,7 @@ namespace PresentationLayer
             }
             BussinessLogicClass bussinessLogicObject = new BussinessLogicClass();
             BussinessObjectsClass bussinessObject = new BussinessObjectsClass();
+            // Collecting all Data Entered by Admin. NOTE: In Fare table we are Entering ID's not Name of place.
             bussinessObject.BusNumber = ViewState["BusNumber"].ToString(); 
             bussinessObject.FromDepartureID = ddlFromPlace.SelectedValue.ToString();
             bussinessObject.ToDestinationID = ddlToPlace.SelectedValue.ToString();
