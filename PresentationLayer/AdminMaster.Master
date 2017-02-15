@@ -29,40 +29,37 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2" colspan="2">
-                    <asp:Image ID="LogoAdminMasterPage" runat="server" Height="89px" ImageUrl="~/Images/logo.png" Width="90px" />
+                    <asp:Image ID="LogoAdminMasterPage" runat="server" Height="89px" ImageUrl="~/Images/logo.jpg" Width="90px" />
                     <span class="auto-style5"><strong><em>Harkhjot Singh Tours and Travels</em></strong></span></td>
             </tr>
             <tr>
                 <td class="auto-style4"><strong><em>
-                    <asp:Menu ID="Menu1" runat="server" BackColor="#FFFBD6" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="Large" ForeColor="#990000" Orientation="Horizontal" StaticSubMenuIndent="10px">
-                        <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
-                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                        <DynamicMenuStyle BackColor="#FFFBD6" />
-                        <DynamicSelectedStyle BackColor="#FFCC66" />
-                        <Items>
-                            <asp:MenuItem Text="Bus" Value="Bus">
-                                <asp:MenuItem Text="Add" Value="Add" NavigateUrl="~/AddBus.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="View" Value="View" NavigateUrl="~/ViewBusDetailsAdmin.aspx"></asp:MenuItem>
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Pickup Point" Value="Pickup Point">
-                                <asp:MenuItem Text="Add" Value="Add" NavigateUrl="~/AddBusPickupPoints.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Delete" Value="Delete"></asp:MenuItem>
-                                <asp:MenuItem Text="View" Value="View" NavigateUrl="~/ViewPickupPointsInfoAdmin.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Add Bus Pickup Point" Value="Add Bus Pickup Point" NavigateUrl="~/AddBusSpecific_PickupPoints.aspx"></asp:MenuItem>
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="DestinationPoint" Value="DestinationPoint">
-                                <asp:MenuItem Text="Add" Value="Add" NavigateUrl="~/AddDestinationIDs.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Delete" Value="Delete"></asp:MenuItem>
-                                <asp:MenuItem Text="View" Value="View" NavigateUrl="~/ViewDestinationPointsInfoAdmin.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Bus Destination Point" Value="Bus Destination Point" NavigateUrl="~/AddBusSpecificDestinationPoints.aspx"></asp:MenuItem>
-                            </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/AddFare.aspx" Text="Fare" Value="Fare"></asp:MenuItem>
-                            <asp:MenuItem Text="Logout" Value="Logout"></asp:MenuItem>
-                        </Items>
-                        <StaticHoverStyle BackColor="#990000" ForeColor="White" />
-                        <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                        <StaticSelectedStyle BackColor="#FFCC66" />
-                    </asp:Menu>
+                    <nav>
+            <ul>
+                <li>Bus
+                    <ul>
+                        <li><a href="AddBus.aspx">Add Bus</a></li>
+                        <li><a href="ViewBusDetailsAdmin.aspx">View Bus Details</a></li>
+                    </ul>
+                </li>
+                <li>Pickup Points
+                    <ul>
+                        <li><a href="AddBusPickupPoints.aspx">Add</a></li>
+                        <li><a href="ViewPickupPointsInfoAdmin.aspx">View</a></li>
+                        <li><a href="AddBusSpecific_PickupPoints.aspx">Add Bus Pickup Point</a></li>
+                    </ul>
+                </li>
+                <li>Destination Points
+                    <ul>
+                        <li><a href="AddDestinationIDs.aspx">Add</a></li>
+                        <li><a href="ViewDestinationPointsInfoAdmin.aspx">View</a></li>
+                        <li><a href="AddBusSpecificDestinationPoints.aspx">Add Bus Destination Point</a></li>
+                    </ul>
+                </li>
+                <li><a href="AddFare.aspx">Fare</a></li>
+            </ul>
+        </nav>
+                    
                     </em></strong></td>
                 <td>
                     &nbsp;</td>
@@ -79,7 +76,8 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <asp:TextBox ID="TxtCopyright" runat="server" Width="286px">Copyright © 2017. All rights reserved. </asp:TextBox>
+
+                    <asp:TextBox ID="TxtCopyright" runat="server" Width="284px">Copyright © 2017. All rights reserved. </asp:TextBox>
                 </td>
             </tr>
         </table>

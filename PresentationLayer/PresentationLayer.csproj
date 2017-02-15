@@ -121,6 +121,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Images\logo.png" />
+    <Content Include="Style-Sheets\StyleSheetMainMaster.css" />
     <Content Include="UpdateDestinationPoints.aspx" />
     <Content Include="ViewBusDetailsAdmin.aspx" />
     <Content Include="ViewDestinationPointsInfoAdmin.aspx" />

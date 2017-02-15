@@ -4,79 +4,31 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Harkhjot Travels</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style type="text/css">
-        .auto-style4 {
-            width: 490px;
-        }
-        .auto-style5 {
-            color: #0000FF;
-            font-size: xx-large;
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="StyleSheet" href="Style-Sheets\StyleSheetMainMaster.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
-<body style="font-size: medium">
-    <form id="form1" runat="server">
-    <div>
-        <asp:Image ID="Logo" runat="server" Height="102px" ImageUrl="~/Images/logo.png" style="font-size: small" />
-        <span class="auto-style5"><strong><em>Harkhjot Singh Tours and Travels</em></strong></span><table class="auto-style1">
-            <tr>
-                <td class="auto-style2" colspan="2">
-                    <asp:Menu ID="Menu1" runat="server" BackColor="#FFFBD6" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" Orientation="Horizontal" StaticSubMenuIndent="10px" style="font-weight: 700; font-size: medium; text-decoration: underline; color: #0066FF;">
-                        <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
-                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                        <DynamicMenuStyle BackColor="#FFFBD6" />
-                        <DynamicSelectedStyle BackColor="#FFCC66" />
-                        <Items>
-                            <asp:MenuItem NavigateUrl="~/Home.aspx" Text="HOME" Value="HOME"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Login.aspx" Text="LOGIN" Value="LOGIN"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Contact.aspx" Text="CONTACT" Value="CONTACT"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/About.aspx" Text="ABOUT" Value="ABOUT"></asp:MenuItem>
-                        </Items>
-                        <StaticHoverStyle BackColor="#990000" ForeColor="White" />
-                        <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                        <StaticSelectedStyle BackColor="#FFCC66" />
-                    </asp:Menu>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2" colspan="2">
-                    <asp:TreeView ID="TreeView1" runat="server">
-                        <Nodes>
-                            <asp:TreeNode NavigateUrl="~/Home.aspx" Text="HOME" Value="HOME"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="~/Login.aspx" Text="LOGIN" Value="LOGIN"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="~/Contact.aspx" Text="CONTACT" Value="New Node"></asp:TreeNode>
-                            <asp:TreeNode NavigateUrl="~/About.aspx" Text="ABOUT" Value="New Node"></asp:TreeNode>
-                        </Nodes>
-                    </asp:TreeView>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style4">
+<!--Body Elements-->
+<body>
+    <form id="mainMasterForm" runat="server">
+        <header>
+            <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/logo.jpg"/>
+            <span id="comName">Harkhjot Singh Tours and Travels</span>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="Home.aspx">HOME</a></li>
+                <li><a href="Login.aspx">LOGIN</a></li>
+                <li><a href="Contact.aspx">CONTACT</a></li>
+                <li><a href="About.aspx">ABOUT</a></li>
+            </ul>
+        </nav>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-            <p>
-                &nbsp;</p>
-        
+
         </asp:ContentPlaceHolder>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style3">
-                    <asp:TextBox ID="TxtCopyright" runat="server"  Width="229px">Copyright © 2017. All rights reserved. </asp:TextBox>
-                </td>
-                <td class="auto-style4">&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style4">&nbsp;</td>
-            </tr>
-        </table>
-    </div>
+        <asp:TextBox ID="TxtCopyright" runat="server">Copyright © 2017. All rights reserved. </asp:TextBox>
     </form>
 </body>
 </html>
