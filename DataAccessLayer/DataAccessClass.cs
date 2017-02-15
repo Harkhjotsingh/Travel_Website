@@ -273,5 +273,23 @@ namespace DataAccessNamespace
             return ds;                                                                                               // return DataSet.    
         }
         #endregion
+        #region AddFare
+        public int AddFare(BussinessObjectsClass bussinessObject)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conn_str"].ToString());
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("proc_addFare", conn);                                      
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@BusNumber", bussinessObject.BusNumber);                                    
+            cmd.Parameters.AddWithValue("@Start_id", bussinessObject.FromDepartureID);
+            cmd.Parameters.AddWithValue("@From_depTime", bussinessObject.FromDepartureTime);
+            cmd.Parameters.AddWithValue("@Destination_id", bussinessObject.ToDestinationID);
+            cmd.Parameters.AddWithValue("@To_depTime", bussinessObject.ToDepartureTime);
+            cmd.Parameters.AddWithValue("@Fare", bussinessObject.Fare);
+            int isquerySuccessful = cmd.ExecuteNonQuery();
+            conn.Close();
+            return isquerySuccessful;
+        }
+        #endregion
     }
 }

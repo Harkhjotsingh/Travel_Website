@@ -156,5 +156,12 @@ namespace BussinessLogicNamespace
             return ds;                                                                           // return DataSet.
         }
         #endregion
+        #region AddFare
+        public int AddFare(BussinessObjectsClass bussinessObject)
+        {
+            int isFareAdded = dataAccessObject.AddFare(bussinessObject);      
+            return isFareAdded;
+        }
+        #endregion
     }
 }

@@ -27,5 +27,11 @@ namespace BussinessObjectsNamespace
         // Bus Destination(s) Properties
         public string DestinationId { get; set; }
         public string DestinationLocation { get; set; }
+        //Fare Properties
+        public double Fare { get; set; }
+        public string FromDepartureTime { get; set; }
+        public string ToDepartureTime { get; set; }
+        public string FromDepartureID { get; set; }
+        public string ToDestinationID { get; set; }
     }
 }

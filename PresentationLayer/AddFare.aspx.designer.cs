@@ -49,6 +49,15 @@ namespace PresentationLayer {
         protected global::System.Web.UI.WebControls.TextBox txtStartTime;
         
         /// <summary>
+        /// lblStartTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStartTime;
+        
+        /// <summary>
         /// txtArrivalTime control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,33 @@ namespace PresentationLayer {
         protected global::System.Web.UI.WebControls.TextBox txtArrivalTime;
         
         /// <summary>
+        /// lblArrivalTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblArrivalTime;
+        
+        /// <summary>
+        /// txtFare control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFare;
+        
+        /// <summary>
+        /// lblFare control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFare;
+        
+        /// <summary>
         /// btnAddFare control.
         /// </summary>
         /// <remarks>
@@ -65,5 +101,14 @@ namespace PresentationLayer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddFare;
+        
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }
