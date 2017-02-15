@@ -35,8 +35,12 @@
                         <li><a href="AddBusSpecificDestinationPoints.aspx">Add Bus Destination Point</a></li>
                     </ul>
                 </li>
-                <li><a href="AddFare.aspx">Fare</a></li>
-             </ul>
+                <li>Fare
+                    <ul>
+                        <li><a href="AddFare.aspx">Add Fare</a></li>
+                    </ul>
+                </li>
+           </ul>
         </nav>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
