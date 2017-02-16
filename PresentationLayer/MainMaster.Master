@@ -14,7 +14,7 @@
 <body>
     <form id="mainMasterForm" runat="server">
         <header>
-            <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/logo.jpg"/>
+            <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/logo.jpg" />
             <span id="comName">Harkhjot Singh Tours and Travels</span>
         </header>
         <nav>
@@ -26,9 +26,10 @@
             </ul>
         </nav>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-
         </asp:ContentPlaceHolder>
-        <asp:TextBox ID="TxtCopyright" runat="server">Copyright © 2017. All rights reserved. </asp:TextBox>
     </form>
+    <footer>
+        <p>Copyright © 2017. All rights reserved.</p>
+    </footer>
 </body>
 </html>
