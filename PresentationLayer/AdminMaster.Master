@@ -7,44 +7,109 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-
+    <link rel="StyleSheet" href="Style-Sheets\StyleSheetAdminMaster.css" />
 </head>
 <body>
+
+    <!--
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li class="dropdown">
+    <a  class="dropbtn">Dropdown</a>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </li>
+</ul>
+-->
     <form id="form1" runat="server">
-        <asp:Image ID="LogoAdminMasterPage" runat="server" Height="89px" ImageUrl="~/Images/logo.jpg" Width="90px" />
-        <span class="auto-style5"><strong><em>Harkhjot Singh Tours and Travels</em></strong></span></td>               
+        <header>
+            <asp:Image ID="Logo" runat="server" ImageUrl="~/Images/logo.jpg" />
+            <span id="comName">Harkhjot Singh Tours and Travels</span>
+        </header>
         <nav>
-           <ul>
-               <li>Bus
-                    <ul>
-                        <li><a href="AddBus.aspx">Add Bus</a></li>
-                        <li><a href="ViewBusDetailsAdmin.aspx">View Bus Details</a></li>
-                    </ul>
+            <ul>
+                <li class="dropdown">
+                    <a class="dropdownBtn">Bus</a>
+                    <div class="Options">
+                        <a href="AddBusPickupPoints.aspx">Add</a>
+                        <a href="ViewPickupPointsInfoAdmin.aspx">View</a>
+                        <a href="AddBusSpecific_PickupPoints.aspx">Add Bus Pickup Point</a>
+                    </div>
                 </li>
-                <li>Pickup Points
-                    <ul>
-                        <li><a href="AddBusPickupPoints.aspx">Add</a></li>
-                        <li><a href="ViewPickupPointsInfoAdmin.aspx">View</a></li>
-                        <li><a href="AddBusSpecific_PickupPoints.aspx">Add Bus Pickup Point</a></li>
-                    </ul>
+                <li class="dropdown">
+                    <a class="dropdownBtn">Pickup Points</a>
+                    <div class="Options">
+                        <a href="AddBusPickupPoints.aspx">Add</a>
+                        <a href="ViewPickupPointsInfoAdmin.aspx">View</a>
+                        <a href="AddBusSpecific_PickupPoints.aspx">Add Bus Pickup Point</a>
+                    </div>
                 </li>
-                <li>Destination Points
-                    <ul>
-                        <li><a href="AddDestinationIDs.aspx">Add</a></li>
-                        <li><a href="ViewDestinationPointsInfoAdmin.aspx">View</a></li>
-                        <li><a href="AddBusSpecificDestinationPoints.aspx">Add Bus Destination Point</a></li>
-                    </ul>
+                <li class="dropdown">
+                    <a class="dropdownBtn">Destination Points</a>
+                    <div class="Options">
+                        <a href="AddDestinationIDs.aspx">Add</a>
+                        <a href="ViewDestinationPointsInfoAdmin.aspx">View</a>
+                        <a href="AddBusSpecificDestinationPoints.aspx">Add Bus Destination Point</a>
+                    </div>
                 </li>
-                <li>Fare
-                    <ul>
-                        <li><a href="AddFare.aspx">Add Fare</a></li>
-                    </ul>
+                <li class="dropdown">
+                    <a class="dropdownBtn">Fare</a>
+                    <div class="Options">
+                        <a href="AddFare.aspx">Add Fare</a>
+                    </div>
                 </li>
-           </ul>
+            </ul>
         </nav>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-        <asp:TextBox ID="TxtCopyright" runat="server" Width="284px">Copyright © 2017. All rights reserved. </asp:TextBox>
-</form>
+    </form>
+    <footer>
+        <p>Copyright © 2017. All rights reserved.</p>
+    </footer>
 </body>
 </html>
