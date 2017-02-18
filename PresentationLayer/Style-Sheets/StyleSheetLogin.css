@@ -1,0 +1,42 @@
+﻿
+
+/* Login page Styling*/
+#loginControl table{
+    background-color:lightblue;
+    border: outset;
+    border-radius:13px;
+    box-sizing: border-box;
+    Height:300px; 
+    Width:250px;
+    position: relative;
+    top: 50px;
+    left : 100px;
+}
+
+#loginControl tr{
+     font-family:Microsoft JhengHei UI;
+     font-weight:700;
+     color:darkblue;
+     font-style:normal;
+     /*padding:5px;*/
+}
+ 
+
+#ContentPlaceHolder1_userLogin_LoginButton  {
+    background-color: #4CAF50;
+    color: white;
+    align-content:center;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+}
+#FailureText{
+    color:red;
+    font-family:'Times New Roman', Times, serif;
+}
+#loginpage{
+padding-bottom: 100%;
+background-color:#F6F6F6;
+}

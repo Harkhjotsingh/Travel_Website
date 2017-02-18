@@ -24,12 +24,20 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+#mainMasterForm{
+    height:100%
+}
+header{
+    background-color:black;
+}
+
 #comName{
     position:relative;
     top:-25px;
     padding-left: 10px;
     font-size: xx-large;
     font-family: cursive;
+    color:slategray;
     }
 
 #Logo{
@@ -41,7 +49,7 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: slategray;
 }
 
 nav li {
@@ -56,15 +64,28 @@ nav li a {
     text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 nav li a:hover {
     background-color: #111;
 }
-footer {
 
+footer {
+    display:block;
+padding:20px 0 15px 0;
+height:100px;
+width:2500px;
+background-color:dimgrey;
 position:fixed;
-bottom:5px;
-left:50px;
+bottom:0px;
+left:0px;
+}
+#contentHolder{
+    background-color:wheat;
 }
 
+footer p{
+color:white;
+position:absolute;
+bottom:50px;
+left:20px;
+}
 

@@ -20,8 +20,8 @@ namespace PresentationLayer
         {
             BussinessLogicClass bussinessLogic = new BussinessLogicClass();             // Business logic class object. This allows Presentation Layer to interact with Bussiness logic layer.
             BussinessObjectsClass bussinessObject = new BussinessObjectsClass();        // Bussiness Objects class object. This allows Presentation Layer to interact with Bussiness Objects layer.
-            bussinessObject.UserName = userLogin.UserName;                              // Accessing properties defined in Bussiness Object class for username and password.
-            bussinessObject.Password = userLogin.Password;          
+            bussinessObject.UserName = UserName.Text;                                   // Accessing properties defined in Bussiness Object class for username and password.
+            bussinessObject.Password = Password.Text;                
             int loginAttempt = bussinessLogic.AdminLogin(bussinessObject);              // Call AdminLogin() method fo admin login
             if (loginAttempt == 1)                                                      // Redirect to AdminHime.aspx page if return value = 1. 
             {
@@ -29,7 +29,7 @@ namespace PresentationLayer
             }
             else
             {
-                userLogin.FailureText = "Either the username or password is incorrect.";
+                FailureText.Text = "Either the username or password is incorrect.";
             }
         }
     }
