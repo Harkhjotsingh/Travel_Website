@@ -23,7 +23,7 @@
             <asp:CheckBox ID="RememberMe" runat="server" Text="Remember me next time." />
             <br />
             <br />
-            <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" ValidationGroup="userLogin" />
+            <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" ValidationGroup="userLogin" OnClick="LoginButton_Click" />
 
             <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
         </div>
