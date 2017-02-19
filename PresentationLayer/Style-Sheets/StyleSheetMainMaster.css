@@ -69,9 +69,9 @@ nav li a:hover {
 }
 
 footer {
-    display:block;
+display:block;
 padding:20px 0 15px 0;
-height:100px;
+height:60px;
 width:2500px;
 background-color:dimgrey;
 position:fixed;
@@ -85,7 +85,7 @@ left:0px;
 footer p{
 color:white;
 position:absolute;
-bottom:50px;
-left:20px;
+bottom:30px;
+left:30px;
 }
 

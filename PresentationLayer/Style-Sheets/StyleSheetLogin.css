@@ -1,42 +1,71 @@
-﻿
+﻿/* Login page Styling*/
 
-/* Login page Styling*/
-#loginControl table{
-    background-color:lightblue;
-    border: outset;
-    border-radius:13px;
+
+img {
+    height: 100%;
+    width: 100%;
+    opacity: 0.2;
+}
+
+#loginpage {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient( rgba(0, 0, 0, 1), rgba(0, 0, 0, 1) ), url('landingpagepic.jpg');
+}
+
+#userlogin {
+    padding: 100px  450px;
+    position: fixed;
+    left: 10px;
+    top: 135px;
+}
+
+#userlogin p {
+    padding:5px 30px 5px 30px;
+    text-align: center;
+    font-family:Arial;
+    font-size:x-large;
+    letter-spacing:12px; 
+    color:white;     
+}
+
+input[type=text],[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     box-sizing: border-box;
-    Height:300px; 
-    Width:250px;
-    position: relative;
-    top: 50px;
-    left : 100px;
+    opacity:0.5;
+    color:black;
+   font-weight:bold;
+    background-color: #ffffff;
 }
 
-#loginControl tr{
-     font-family:Microsoft JhengHei UI;
-     font-weight:700;
-     color:darkblue;
-     font-style:normal;
-     /*padding:5px;*/
-}
- 
-
-#ContentPlaceHolder1_userLogin_LoginButton  {
+input[type=submit] {
+    width: 100%;
     background-color: #4CAF50;
     color: white;
-    align-content:center;
-    padding: 14px 20px;
-    margin: 8px 0;
+    font-size:large;
+    padding: 11px 20px;
+    margin: 12px 0;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
-    width: 30%;
+    opacity:0.5;
 }
-#FailureText{
+#ContentPlaceHolder1_lblErrMsg{
     color:red;
-    font-family:'Times New Roman', Times, serif;
+    text-align:center;
+    font-size:larger;
 }
-#loginpage{
-padding-bottom: 100%;
-background-color:#F6F6F6;
-}
+    #userlogin label, p {
+        font-size: large;
+        font-family:'Microsoft JhengHei';
+        letter-spacing: 1px;
+        color:white;
+
+    }
+
+
